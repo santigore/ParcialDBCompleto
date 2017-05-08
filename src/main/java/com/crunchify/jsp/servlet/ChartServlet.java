@@ -5,10 +5,13 @@
  */
 package com.crunchify.jsp.servlet;
 
+import edu.co.sergio.mundo.dao.DepartamentoDAO;
+import edu.co.sergio.mundo.vo.Departamento;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,10 +39,18 @@ public class ChartServlet extends HttpServlet {
 	public JFreeChart getChart() {
 		
                 DefaultPieDataset dataset = new DefaultPieDataset();
+                DepartamentoDAO dAO=new DepartamentoDAO();
 	        //Crear la capa de servicios que se enlace con el DAO
-                dataset.setValue("Ford", 23.3);
-		dataset.setValue("Chevy", 32.4);
-		dataset.setValue("Yugo", 44.2);
+                ArrayList<Departamento> arrayList=(ArrayList<Departamento>) dAO.findAll();
+                int sum = 0;
+                for (int i = 0; i < arrayList.size(); i++) {
+                sum=arrayList.get(i).getId_departamento()+sum;
+            }
+                for (int i = 0; i < arrayList.size(); i++) {
+                dataset.setValue(arrayList.get(i).getNom_departamento(), arrayList.get(i).getId_departamento()/sum *100);
+            }
+                
+                
 
 		boolean legend = true;
 		boolean tooltips = false;
