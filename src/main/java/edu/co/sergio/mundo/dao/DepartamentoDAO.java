@@ -34,7 +34,7 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 	 */
 	public List<Departamento> findAll() {
 		List<Departamento> departamentos= null;
-	    String query = "SELECT * FROM Depto";
+	    String query = "select nom_proy,count(id_rec) as total from Proyecto left join Recurso using (id_proyecto) group by nom_proy;";
 	    Connection connection = null;
             try {
                 connection = Conexion.getConnection();
@@ -53,10 +53,10 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 	    	}
 	      
 	        Departamento registro= new Departamento();
-	        id = rs.getInt("id_depto");
+	        id = rs.getInt("total");
 	        registro.setId_departamento(id);
 	        
-	        nombre = rs.getString("nom_depto");
+	        nombre = rs.getString("nom_proy");
 	        registro.setNom_departamento(nombre) ;
 	        
 	        departamentos.add(registro);
