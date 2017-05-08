@@ -47,7 +47,8 @@ public class ChartServlet extends HttpServlet {
                 sum=arrayList.get(i).getId_departamento()+sum;
             }
                 for (int i = 0; i < arrayList.size(); i++) {
-                dataset.setValue(arrayList.get(i).getNom_departamento(), arrayList.get(i).getId_departamento()/sum *100);
+                    double porsentaje=(arrayList.get(i).getId_departamento()/sum) *100;
+                dataset.setValue(arrayList.get(i).getNom_departamento(), porsentaje);
             }
                 
                 
