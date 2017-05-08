@@ -42,13 +42,18 @@ public class ChartServlet extends HttpServlet {
                 DepartamentoDAO dAO=new DepartamentoDAO();
 	        //Crear la capa de servicios que se enlace con el DAO
                 ArrayList<Departamento> arrayList=(ArrayList<Departamento>) dAO.findAll();
-                int sum = 0;
+                double sum = 0;
                 for (int i = 0; i < arrayList.size(); i++) {
                 sum=arrayList.get(i).getId_departamento()+sum;
             }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    double porsentaje=(arrayList.get(i).getId_departamento()/sum) *100;
-                dataset.setValue(arrayList.get(i).getNom_departamento(), 20);
+                    if (arrayList.get(i).getId_departamento()!=0) {
+                            double porcentaje=0;
+                dataset.setValue(arrayList.get(i).getNom_departamento(), porcentaje);
+                        }else{
+                    double porcentaje=(arrayList.get(i).getId_departamento()/sum) *100;
+                dataset.setValue(arrayList.get(i).getNom_departamento(), porcentaje);
+                    }
             }
                 
                 
