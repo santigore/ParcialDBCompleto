@@ -48,10 +48,10 @@ public class ChartServlet extends HttpServlet {
             }
                 for (int i = 0; i < arrayList.size(); i++) {
                     if (arrayList.get(i).getId_departamento()!=0) {
-                            double porcentaje=0;
+                            double porcentaje=(arrayList.get(i).getId_departamento()/sum) *100;
                 dataset.setValue(arrayList.get(i).getNom_departamento(), porcentaje);
                         }else{
-                    double porcentaje=(arrayList.get(i).getId_departamento()/sum) *100;
+                    double porcentaje=0;
                 dataset.setValue(arrayList.get(i).getNom_departamento(), porcentaje);
                     }
             }
