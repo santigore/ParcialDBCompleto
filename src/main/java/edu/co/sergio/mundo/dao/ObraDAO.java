@@ -50,11 +50,10 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	    while (rs.next()){
                 Obra registro=new Obra();
 	    	if(obras == null){
-	    		obras= new ArrayList<Obra>();
-                        Autor=rs.getString("nombreAutor");
-                        valor=rs.getDouble("valor");
-                        
+	    		obras= new ArrayList<Obra>();     
 	    	}
+                Autor=rs.getString("nombreAutor");
+                valor=rs.getDouble("valor");
 	        obras.add(registro);
 	    }
 	    st.close();
