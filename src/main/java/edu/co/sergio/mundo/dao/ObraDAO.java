@@ -34,7 +34,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	 */
 	public List<Obra> findAll() {
 		List<Obra> obras= null;
-	    String query = "select nom_proy,count(id_rec) as total from Proyecto left join Recurso using (id_proyecto) group by nom_proy;";
+	    String query = "Select nombreAutor, valor from (select nombreAutor,sum(valor) as valor from (artista natural join obra) group by nombreAutor ) as resultao where valor>10000 ;";
 	    Connection connection = null;
             try {
                 connection = Conexion.getConnection();
@@ -45,9 +45,6 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	    Statement st = connection.createStatement();
 	    ResultSet rs = st.executeQuery(query);
 	    String Autor =null;
-	    String nombre = null;
-            String descripcion=null;
-            String estilo=null;
             double valor=0;
 	
 	    while (rs.next()){
@@ -55,9 +52,6 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	    	if(obras == null){
 	    		obras= new ArrayList<Obra>();
                         Autor=rs.getString("nombreAutor");
-                        nombre=rs.getString("nombreObra");
-                        descripcion=rs.getString("descripcion");
-                        estilo=rs.getString("estilo");
                         valor=rs.getDouble("valor");
                         
 	    	}
