@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import edu.co.sergio.mundo.vo.Obra;
+import edu.co.sergio.mundo.vo.Recoleccion;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,15 +26,15 @@ import java.util.logging.Logger;
  */
  
 
-public class ObraDAO implements IBaseDatos<Obra> {
+public class ObraDAO implements IBaseDatos<Recoleccion> {
 
 	/**
 	 * Funcion que permite obtener una lista de los departamentos existentes en la base de datos
 	 * @return List<Departamento> Retorna la lista de Departamentos existentes en la base de datos
 	 */
-	public List<Obra> findAll() {
-		List<Obra> obras= null;
-	    String query = "Select nombreAutor, valor from (select nombreAutor,sum(valor) as valor from (artista natural join obra) group by nombreAutor ) as resultao where valor>10000 ;";
+	public List<Recoleccion> findAll() {
+		List<Recoleccion> obras= null;
+	    String query = "select idcolmena, sum(panalconalimento) as Suma from visitatecnica group by idcolmena;";
 	    Connection connection = null;
             try {
                 connection = Conexion.getConnection();
@@ -44,18 +44,18 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	    try {
 	    Statement st = connection.createStatement();
 	    ResultSet rs = st.executeQuery(query);
-	    String Autor =null;
-            double valor=0;
+	    int idColmena;
+            int valor;
 	
 	    while (rs.next()){
-                Obra registro=new Obra();
+                Recoleccion registro=new Recoleccion();
 	    	if(obras == null){
-	    		obras= new ArrayList<Obra>();     
+	    		obras= new ArrayList<Recoleccion>();     
 	    	}
-                Autor=rs.getString("nombreAutor");
-                registro.setNombreAutor(Autor);
-                valor=rs.getDouble("valor");
-                registro.setValor(valor);
+                idColmena=rs.getInt("idColmena");
+                registro.setIdColmena(idColmena);
+                valor=rs.getInt("suma");
+                registro.setAlimento(valor);
 	        obras.add(registro);
 	    }
 	    st.close();
@@ -74,7 +74,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de insercion es exitosa.
 	 */
-	public boolean insert(Obra t) {
+	public boolean insert(Recoleccion t) {/*
 		boolean result=false;
 		Connection connection=null;
             try {
@@ -94,8 +94,8 @@ public class ObraDAO implements IBaseDatos<Obra> {
 			result= preparedStmt.execute();
 	    } catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return result;
+		}*/
+		return false;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de actualizacion es exitosa.
 	 */
-	public boolean update(Obra t) {
+	public boolean update(Recoleccion t) {
 		boolean result=false;
 		Connection connection= null;
             try {
@@ -133,7 +133,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de borrado es exitosa.
 	 */
-	public boolean delete(Obra t) {
+	public boolean delete(Recoleccion t) {/*
 	   boolean result=false;
 	   Connection connection = null;
             try {
@@ -145,12 +145,12 @@ public class ObraDAO implements IBaseDatos<Obra> {
 	   PreparedStatement preparedStmt=null;
 	   try {
 		     preparedStmt = connection.prepareStatement(query);
-		     preparedStmt.setString(1, t.getNombreObra());
+		     preparedStmt.setString(1, t.getIdColmena());
 		    result= preparedStmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	   
-	   return result;
+	   */
+	   return false;
 	}
 }
