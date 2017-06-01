@@ -20,8 +20,8 @@ body {
  
     <%
        if( request.getAttribute("obras")!=null){
-          List<Obra> obras  = (List<Obra>)request.getAttribute("obras");
-           for (Obra obra : obras) {
+          List<Recoleccion> obras  = (List<Recoleccion>)request.getAttribute("obras");
+           for (Recoleccion obra : obras) {
          %>      
          <h1> <%=obra.getNombreAutor()%> </h1><br/> 
          <%      
