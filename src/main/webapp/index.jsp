@@ -18,18 +18,6 @@ body {
 </head>
 <body>
  
-    <%
-       if( request.getAttribute("obras")!=null){
-          List<Recoleccion> obras  = (List<Recoleccion>)request.getAttribute("obras");
-           for (Recoleccion obra : obras) {
-         %>      
-         <h1> <%=obra.getNombreAutor()%> </h1><br/> 
-         <%      
-          }
-       }
-      
-    
-    %>
     <img src="ChartServlet" />
 </body>
 </html>
