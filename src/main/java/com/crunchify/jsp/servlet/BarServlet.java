@@ -5,8 +5,8 @@
  */
 package com.crunchify.jsp.servlet;
 
-import edu.co.sergio.mundo.dao.AlimentoDAO;
-import edu.co.sergio.mundo.vo.Alimento;
+import edu.co.sergio.mundo.dao.RecoleccionDAO;
+import edu.co.sergio.mundo.vo.Kilos;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.io.IOException;
@@ -39,16 +39,16 @@ public class BarServlet extends HttpServlet {
 	public JFreeChart getChart() {
 		
                 DefaultPieDataset dataset = new DefaultPieDataset();
-                AlimentoDAO dAO=new AlimentoDAO();
+                RecoleccionDAO dAO=new RecoleccionDAO();
 	        //Crear la capa de servicios que se enlace con el DAO
-                ArrayList<Alimento> arrayList=(ArrayList<Alimento>) dAO.findAll();
+                ArrayList<Kilos> arrayList=(ArrayList<Kilos>) dAO.findAll();
                 double sum = 0;
                 for (int i = 0; i < arrayList.size(); i++) {
-                sum=arrayList.get(i).getAlimento()+sum;
+                sum=arrayList.get(i).getKilos()+sum;
             }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (arrayList.get(i).getAlimento()!=0) {
-                            double porcentaje=(arrayList.get(i).getAlimento()/sum) *100;
+                    if (arrayList.get(i).getKilos()!=0) {
+                            double porcentaje=(arrayList.get(i).getKilos()/sum) *100;
                 dataset.setValue(String.valueOf(arrayList.get(i).getIdColmena()), porcentaje);
                         }else{
                     double porcentaje=0;

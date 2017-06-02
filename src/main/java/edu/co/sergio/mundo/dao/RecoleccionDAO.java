@@ -54,7 +54,7 @@ public class RecoleccionDAO implements IBaseDatos<Kilos> {
 	    	}
                 idColmena=rs.getInt("idColmena");
                 registro.setIdColmena(idColmena);
-                valor=rs.getInt("suma");
+                valor=rs.getInt("Suma");
                 registro.setKilos(valor);
 	        obras.add(registro);
 	    }
