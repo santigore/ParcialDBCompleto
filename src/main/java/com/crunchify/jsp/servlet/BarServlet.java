@@ -5,14 +5,15 @@
  */
 package com.crunchify.jsp.servlet;
 
-import edu.co.sergio.mundo.dao.RecoleccionDAO;
-import edu.co.sergio.mundo.vo.Kilos;
-import java.awt.BasicStroke;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 import java.awt.Color;
+import java.awt.Paint;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.TextAnchor;
 
 public class BarServlet extends HttpServlet {
 
@@ -38,36 +47,52 @@ public class BarServlet extends HttpServlet {
 
 	public JFreeChart getChart() {
 		
-                DefaultPieDataset dataset = new DefaultPieDataset();
-                RecoleccionDAO dAO=new RecoleccionDAO();
-	        //Crear la capa de servicios que se enlace con el DAO
-                ArrayList<Kilos> arrayList=(ArrayList<Kilos>) dAO.findAll();
-                double sum = 0;
-                for (int i = 0; i < arrayList.size(); i++) {
-                sum=arrayList.get(i).getKilos()+sum;
-            }
-                for (int i = 0; i < arrayList.size(); i++) {
-                    if (arrayList.get(i).getKilos()!=0) {
-                            double porcentaje=(arrayList.get(i).getKilos()/sum) *100;
-                dataset.setValue(String.valueOf(arrayList.get(i).getIdColmena()), porcentaje);
-                        }else{
-                    double porcentaje=0;
-                dataset.setValue(String.valueOf(arrayList.get(i).getIdColmena()), porcentaje);
-                    }
-            }
-                
+        
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(15, "1", "451");
+        dataset.addValue(12, "1", "851");
+        dataset.addValue(10, "2", "362");
+        dataset.addValue(5,  "2",  "142"); 
+        
+ JFreeChart chart = ChartFactory.createBarChart(
+            "Bar Chart Demo 3",       // chart title
+            "Category",               // domain axis label
+            "Value",                  // range axis label
+            dataset,                  // data
+            PlotOrientation.VERTICAL, // the plot orientation
+            false,                    // include legend
+            true,
+            false
+        );
 
-		boolean legend = true;
-		boolean tooltips = false;
-		boolean urls = false;
+        chart.setBackgroundPaint(Color.lightGray);
 
-		JFreeChart chart = ChartFactory.createPieChart("Kilos", dataset, legend, tooltips, urls);
+        // get a reference to the plot for further customisation...
+        CategoryPlot plot = chart.getCategoryPlot();
+        plot.setNoDataMessage("NO DATA!");
 
-		chart.setBorderPaint(Color.GREEN);
-		chart.setBorderStroke(new BasicStroke(5.0f));
-		chart.setBorderVisible(true);
+        CategoryItemRenderer renderer = new CustomRenderer(
+            new Paint[] {Color.red, Color.blue, Color.green,
+                Color.yellow, Color.orange, Color.cyan,
+                Color.magenta, Color.blue}
+        );
 
-		return chart;
+        renderer.setItemLabelsVisible(true);
+        ItemLabelPosition p = new ItemLabelPosition(
+            ItemLabelAnchor.CENTER, TextAnchor.CENTER, TextAnchor.CENTER, 45.0
+        );
+        /*
+        renderer.setPositiveItemLabelPosition(p);
+        plot.setRenderer(renderer);*/
+
+        // change the margin at the top of the range axis...
+        ValueAxis rangeAxis = plot.getRangeAxis();
+        rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+        rangeAxis.setLowerMargin(0.15);
+        rangeAxis.setUpperMargin(0.15);
+
+        return chart;
+		
 	}
 
 }
