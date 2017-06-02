@@ -61,7 +61,7 @@ public class BarServlet extends HttpServlet {
 		boolean tooltips = false;
 		boolean urls = false;
 
-		JFreeChart chart = ChartFactory.createPieChart("Obras", dataset, legend, tooltips, urls);
+		JFreeChart chart = ChartFactory.createPieChart("Kilos", dataset, legend, tooltips, urls);
 
 		chart.setBorderPaint(Color.GREEN);
 		chart.setBorderStroke(new BasicStroke(5.0f));
