@@ -10,10 +10,13 @@ package com.crunchify.jsp.servlet;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import edu.co.sergio.mundo.dao.RecoleccionDAO;
+import edu.co.sergio.mundo.vo.Kilos;
 import java.awt.Color;
 import java.awt.Paint;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,15 +52,17 @@ public class BarServlet extends HttpServlet {
 		
         
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(15, "1", "451");
-        dataset.addValue(12, "1", "851");
-        dataset.addValue(10, "2", "362");
-        dataset.addValue(5,  "2",  "142"); 
+            RecoleccionDAO dAO=new RecoleccionDAO();
+            ArrayList<Kilos> arraylist=(ArrayList<Kilos>) dAO.findAll();
+            for (int i = 0; i < arraylist.size(); i++) {
+                double d=arraylist.get(i).getKilos();
+                dataset.setValue(d,String.valueOf(d),String.valueOf(arraylist.get(i).getIdColmena()));
+            }
         
  JFreeChart chart = ChartFactory.createBarChart(
-            "Bar Chart Demo 3",       // chart title
-            "Category",               // domain axis label
-            "Value",                  // range axis label
+            "Kilos",       // chart title
+            "Colmena",               // domain axis label
+            "Miel",                  // range axis label
             dataset,                  // data
             PlotOrientation.VERTICAL, // the plot orientation
             false,                    // include legend
