@@ -56,7 +56,7 @@ public class BarServlet extends HttpServlet {
             ArrayList<Kilos> arraylist=(ArrayList<Kilos>) dAO.findAll();
             for (int i = 0; i < arraylist.size(); i++) {
                 double d=arraylist.get(i).getKilos();
-                dataset.setValue(d,String.valueOf(d),String.valueOf(arraylist.get(i).getIdColmena()));
+                dataset.setValue(d,String.valueOf(arraylist.get(i).getIdColmena()),String.valueOf(arraylist.get(i).getIdColmena()));
             }
         
  JFreeChart chart = ChartFactory.createBarChart(
