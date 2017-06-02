@@ -19,5 +19,6 @@ body {
 <body>
  
     <img src="ChartServlet" />
+    <img src="BarServlet" />
 </body>
 </html>

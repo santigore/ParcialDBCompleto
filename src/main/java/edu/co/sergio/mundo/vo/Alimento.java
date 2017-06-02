@@ -1,6 +1,6 @@
 package edu.co.sergio.mundo.vo;
 
-public class Recoleccion {
+public class Alimento {
     private int idColmena;
     private int Alimento;
 

@@ -22,7 +22,7 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-public class ChartServlet extends HttpServlet {
+public class BarServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 

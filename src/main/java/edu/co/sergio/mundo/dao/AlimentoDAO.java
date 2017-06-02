@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import edu.co.sergio.mundo.vo.Recoleccion;
+import edu.co.sergio.mundo.vo.Alimento;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,20 +26,20 @@ import java.util.logging.Logger;
  */
  
 
-public class ObraDAO implements IBaseDatos<Recoleccion> {
+public class AlimentoDAO implements IBaseDatos<Alimento> {
 
 	/**
 	 * Funcion que permite obtener una lista de los departamentos existentes en la base de datos
 	 * @return List<Departamento> Retorna la lista de Departamentos existentes en la base de datos
 	 */
-	public List<Recoleccion> findAll() {
-		List<Recoleccion> obras= null;
+	public List<Alimento> findAll() {
+		List<Alimento> obras= null;
 	    String query = "select idcolmena, sum(panalconalimento) as Suma from visitatecnica group by idcolmena;";
 	    Connection connection = null;
             try {
                 connection = Conexion.getConnection();
             } catch (URISyntaxException ex) {
-                Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AlimentoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
 	    try {
 	    Statement st = connection.createStatement();
@@ -48,9 +48,9 @@ public class ObraDAO implements IBaseDatos<Recoleccion> {
             int valor;
 	
 	    while (rs.next()){
-                Recoleccion registro=new Recoleccion();
+                Alimento registro=new Alimento();
 	    	if(obras == null){
-	    		obras= new ArrayList<Recoleccion>();     
+	    		obras= new ArrayList<Alimento>();     
 	    	}
                 idColmena=rs.getInt("idColmena");
                 registro.setIdColmena(idColmena);
@@ -74,7 +74,7 @@ public class ObraDAO implements IBaseDatos<Recoleccion> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de insercion es exitosa.
 	 */
-	public boolean insert(Recoleccion t) {/*
+	public boolean insert(Alimento t) {/*
 		boolean result=false;
 		Connection connection=null;
             try {
@@ -103,13 +103,13 @@ public class ObraDAO implements IBaseDatos<Recoleccion> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de actualizacion es exitosa.
 	 */
-	public boolean update(Recoleccion t) {
+	public boolean update(Alimento t) {
 		boolean result=false;
 		Connection connection= null;
             try {
                 connection = Conexion.getConnection();
             } catch (URISyntaxException ex) {
-                Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AlimentoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
 		String query = "update Obra set nom_depto = ? where id_depto = ?";
 		PreparedStatement preparedStmt=null;
@@ -133,7 +133,7 @@ public class ObraDAO implements IBaseDatos<Recoleccion> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de borrado es exitosa.
 	 */
-	public boolean delete(Recoleccion t) {/*
+	public boolean delete(Alimento t) {/*
 	   boolean result=false;
 	   Connection connection = null;
             try {
