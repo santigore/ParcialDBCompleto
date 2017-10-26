@@ -5,7 +5,7 @@
 	<title>putasirve</title>
 	<h1>HOLOLOLOLO care verga</h1>
 
-	  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+	 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
   	<script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(["init", {
@@ -16,6 +16,7 @@
       }
     }]);
   </script>
+   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
   <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(["init", {
