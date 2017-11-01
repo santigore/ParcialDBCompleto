@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>CHANGE LIFE</title>
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+</head>
+<body class="#e3f2fd blue lighten-5">
+
+  <header>
+    <!-- Dropdown Structure -->
+    <!-- Los dropdowns #2 hacen parte de la vista móvil -->
+     <nav>
+        <div class="nav-wrapper #90caf9 blue lighten-3">
+          <div class="logo s3 m12 black-text">
+              <a href="index.html" class="brand-logo black-text">Change Life</a>
+          </div>
+            <a href="index.html" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="somos.html" class="black-text">Quienes somos</a></li>
+              <li><a href="procedimiento.html" class="black-text">Procedimiento</a></li>
+              <li><a href="contacto.html" class="black-text">Contacto</a></li>
+            </ul>
+
+           <!-- En esta parte se pone lo que se va a mostrar a los móviles -->
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href="somos.html" class="black-text">Quienes Somos</a></li>
+              <li><a href="procedimiento.html" class="black-text">Procedimiento</a></li>
+              <li><a href="contacto.html" class="black-text">Contacto</a></li>
+            </ul>
+
+        </div>
+      </nav>
+  </header>
+
+
+
+  <div class="cotnainer center-align">
+
+    <h3>Informacion de contacto</h3>
+    
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="tel">
+            <h5>Telefonos:</h5>
+            <p>(+57)3023456767</p>
+            <p>(+57)3023456789</p>
+            <p>6050229</p>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="correos">
+            <h5>Correos:</h5>
+            <p>ChangeLife@gmail.com</p>
+            <p>informacionChangeLife@gmail.com</p>
+            <p>reclamcionesChangeLife@gmail.com</p>
+          </div>
+        </div>
+      </div>  
+
+      <div class="row center">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix">Nombre</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_telephone" type="text" class="validate">
+            <label for="icon_telephone">Apellido</label>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_prefix" type="email" class="validate">
+            <label for="email" data-error="wrong" data-success="right">correo electronico</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">phone</i>
+            <input id="icon_telephone" type="tel" class="validate">
+            <label for="icon_telephone">Telefono</label>
+          </div>
+        </div>
+      </form>
+
+
+         <form class="col s12">
+        <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Escriba su mensaje:</label>
+                  </div>
+                </div>
+            </form>
+        </div>
+      </form>
+
+      <br />
+      <div class='row center'>
+          <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect #90caf9 blue lighten-2'>Guardar</button>
+      </div>
+
+    </div>
+
+  </div>
+
+   <script src="js/jquery.js"></script>
+   <script src="js/materialize.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $(".button-collapse").sideNav();
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+      });
+   </script>
+</body>
+</html>

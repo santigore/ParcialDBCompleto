@@ -1,12 +1,107 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>CHANGE LIFE</title>
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
 </head>
-<body>
+<body class="#e3f2fd blue lighten-5">
 
-	<h1>HOlA maricon</h1>
-	
+  <header>
+    <!-- Dropdown Structure -->
+    <!-- Los dropdowns #2 hacen parte de la vista móvil -->
+     <nav>
+        <div class="nav-wrapper #90caf9 blue lighten-3">
+          <div class="logo s3 m12 black-text">
+              <a href="index.html" class="brand-logo black-text">Change Life</a>
+          </div>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="somos.html" class="black-text">Quienes somos</a></li>
+              <li><a href="procedimiento.html" class="black-text">Procedimiento</a></li>
+              <li><a href="contacto.html" class="black-text">Contacto</a></li>
+            </ul>
+
+           <!-- En esta parte se pone lo que se va a mostrar a los móviles -->
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href="somos.html" class="black-text">Quienes Somos</a></li>
+              <li><a href="procedimiento.html" class="black-text">Procedimiento</a></li>
+              <li><a href="contacto.html" class="black-text">Contacto</a></li>
+            </ul>
+
+        </div>
+      </nav>
+  </header>
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+  	
+		<div class="row">
+        	<div class="col s12 m6">
+          		<div class="card">
+            		<div class="card-image">
+              			<img src="Imagenes/changelife.jpeg">
+              			<span class="card-title"></span>
+            		</div>
+            		<div class="card-content">
+              			<p>Pensando en el dia a dia de las personas, Chnage life brinda una nueva alternativa para tu vida</p>
+            		</div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          		<div class="card">
+            		<div class="card-image">
+              			<img src="Imagenes/usergio.jpg">
+              			<span class="card-title">Desde la universidad</span>
+            		</div>
+            		<div class="card-content">
+              			<p>El proyecto comienza desde el salon de clases cuando un grupo de estudiantes de la universidad sergio arboleda en direccion y gestion de proyectos presentan su trabajo final</p>
+            		</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        	<div class="col s12 m6">
+          		<div class="card">
+            		<div class="card-image">
+              			<img src="Imagenes/mision3.png">
+              			<span class="card-title black-text">Compartiendo alternativas</span>
+            		</div>
+            		<div class="card-content">
+              			<p>La marca Change Life no solo trata de brindar un servicio medico mas, busca innovar y presentar una alternativa de tratamiento con el biomagnetismos para los usuarios con mas necesidades, los de la tercera edad</p>
+            		</div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          		<div class="card">
+            		<div class="card-image">
+              			<img src="Imagenes/vision3.png">
+              			<span class="card-title black-text"></span>
+            		</div>
+            		<div class="card-content">
+              			<p>La visios de Change Life, es que medicina alternativa como el biomagnetismo llegue a todas las casas, ancianatos y clubes de la tercera edad. Siempre brindando el mejor servicio, manejo de personas y con el mayor respeto posible</p>
+            		</div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+   <script src="js/jquery.js"></script>
+   <script src="js/materialize.min.js"></script>
+   <script>
+      $(document).ready(function(){
+        $(".button-collapse").sideNav();
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+      });
+   </script>
 </body>
 </html>

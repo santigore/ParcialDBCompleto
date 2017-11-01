@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6 {
 	-webkit-font-smoothing: antialiased;
 }
 
+.brand-logo {
+	font-family: 'Kaushan Script';
+}
+
 .font-kaushan {
     font-family: 'Kaushan Script';
 }
@@ -10,3 +14,14 @@ h1, h2, h3, h4, h5, h6 {
 	 max-width: 100px;
 	 max-height: 100px;
 }
+
+.img-responsive {
+	 max-width: 400px;
+	 max-height: 400px;
+}
+
+.card-image {
+  width: 400px;
+  height: 450px;
+}
+
