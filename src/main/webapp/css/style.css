@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5, h6 {
+	-webkit-font-smoothing: antialiased;
+}
+
+.font-kaushan {
+    font-family: 'Kaushan Script';
+}
+
+.logo {
+	 max-width: 100px;
+	 max-height: 100px;
+}
